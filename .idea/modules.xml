@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ShopmeProject/feesManagement/feesManagement.iml" filepath="$PROJECT_DIR$/ShopmeProject/feesManagement/feesManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feesManagement.iml" filepath="$PROJECT_DIR$/feesManagement.iml" />
     </modules>
   </component>
 </project>

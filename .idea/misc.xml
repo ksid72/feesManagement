@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/SIPCallGen/test/pom.xml" />
         <option value="$PROJECT_DIR$/ShopmeProject/feesManagement/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,3 +1,4 @@
+/*
 package com.fees.fee;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,3 +18,4 @@ public class FeeRestController {
 		return service.checkUnique(id, name, alias);
 	}
 }
+*/

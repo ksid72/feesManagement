@@ -1,3 +1,4 @@
+/*
 package com.fees.fee;
 
 import com.producing.common.entity.Category;
@@ -146,3 +147,4 @@ public class StudioService {
 		repo.delete(id);
 	}
 }
+*/
