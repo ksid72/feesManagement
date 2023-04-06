@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="menu">
+	<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+		<input type="submit" />
+	</form>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!-- Container wrapper -->
+		<div class="container-fluid">
+			<!-- Toggle button -->
+			<button
+					class="navbar-toggler"
+					type="button"
+					data-mdb-toggle="collapse"
+					data-mdb-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+			>
+				<i class="fas fa-bars"></i>
+			</button>
+
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<!-- Navbar brand -->
+				<a class="navbar-brand" th:href="@{/}">
+					<img th:src="@{/images/logo.png}" height="40"  />
+				</a>
+				<!-- Left links -->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<th:block sec:authorize="hasAuthority('ADMIN')">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown"
+							   th:href="@{/users}">Users</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{/users/new}">Create New</a>
+								<a class="dropdown-item" th:href="@{/users}">View All</a>
+							</div>
+						</li>
+					</th:block>
+
+					<th:block sec:authorize="hasAnyAuthority('ADMIN', 'STUDIO_MASTER')">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown"
+							   th:href="@{/studios}">Fee Entry</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{/studios/new}">Create New</a>
+								<a class="dropdown-item" th:href="@{/studios}">View All</a>
+							</div>
+						</li>
+					</th:block>
+
+<!--					<th:block sec:authorize="hasAnyAuthority('ADMIN', 'INVENTORY_MASTER')">-->
+<!--					<li class="nav-item dropdown">-->
+<!--						<a class="nav-link dropdown-toggle" data-toggle="dropdown"-->
+<!--						   th:href="@{/brands}">Invetories</a>-->
+<!--						<div class="dropdown-menu">-->
+<!--							<a class="dropdown-item" th:href="@{/brands/new}">Create New</a>-->
+<!--							<a class="dropdown-item" th:href="@{/brands}">View All</a>-->
+<!--						</div>-->
+<!--					</li>-->
+
+<!--					<th:block sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR_MASTER')">-->
+<!--						<li class="nav-item dropdown">-->
+<!--							<a class="nav-link dropdown-toggle" data-toggle="dropdown"-->
+<!--							   th:href="@{/products}">Vendors</a>-->
+<!--							<div class="dropdown-menu">-->
+<!--								<a class="dropdown-item" th:href="@{/products/new}"-->
+<!--								   sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR_MASTER')">Create New</a>-->
+<!--								<a class="dropdown-item" th:href="@{/products}">View All</a>-->
+
+<!--							</div>-->
+<!--						</li>-->
+<!--					</th:block>-->
+
+<!--						<th:block sec:authorize="hasAnyAuthority('ADMIN', 'DOCKET_MASTER')">-->
+<!--							<li class="nav-item dropdown">-->
+<!--								<a class="nav-link dropdown-toggle" data-toggle="dropdown"-->
+<!--								   th:href="@{/products}">Docket</a>-->
+<!--								<div class="dropdown-menu">-->
+<!--									<a class="dropdown-item" th:href="@{/products/new}"-->
+<!--									   sec:authorize="hasAnyAuthority('ADMIN', 'DOCKET_MASTER')">Create New</a>-->
+<!--									<a class="dropdown-item" th:href="@{/products}">View All</a>-->
+
+<!--								</div>-->
+<!--							</li>-->
+<!--						</th:block>-->
+
+<!--						<th:block sec:authorize="hasAnyAuthority('ADMIN', 'STATUTORY_MASTER')">-->
+<!--							<li class="nav-item dropdown">-->
+<!--								<a class="nav-link dropdown-toggle" data-toggle="dropdown"-->
+<!--								   th:href="@{/products}">Statutory Rates</a>-->
+<!--								<div class="dropdown-menu">-->
+<!--									<a class="dropdown-item" th:href="@{/products/new}"-->
+<!--									   sec:authorize="hasAnyAuthority('ADMIN', 'STATUTORY_MASTER')">Create New</a>-->
+<!--									<a class="dropdown-item" th:href="@{/products}">View All</a>-->
+
+<!--								</div>-->
+<!--							</li>-->
+<!--						</th:block>-->
+
+					</ul>
+				<!-- Left links -->
+			</div>
+			<!-- Collapsible wrapper -->
+
+			<!-- Right elements -->
+			<div class="d-flex align-items-center">
+				<!-- Avatar -->
+				<div class="dropdown">
+					<a
+							class="dropdown-toggle d-flex align-items-center hidden-arrow"
+							th:href="@{/account}"
+							id="navbarDropdownMenuAvatar"
+							role="button"
+							data-mdb-toggle="dropdown"
+							aria-expanded="false"
+					>
+						<img
+								src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+								class="rounded-circle"
+								height="25"
+								alt="Black and White Portrait of a Man"
+								loading="lazy"
+						/>
+					</a>
+					<ul
+							class="dropdown-menu dropdown-menu-end"
+							aria-labelledby="navbarDropdownMenuAvatar"
+					>
+						<li>
+							<a class="dropdown-item"  id="logoutLink" href="">Logout</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<!-- Right elements -->
+		</div>
+		<!-- Container wrapper -->
+	</nav>
+	<!-- Navbar -->
+</div>
+</body>
+</html>
